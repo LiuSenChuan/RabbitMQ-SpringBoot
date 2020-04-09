@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    #virtual-host: /pd
+    host: 192.168.64.140
+    username: admin
+    password: admin
+    
+    listener:
+      simple:
+        prefetch: 1 # qos=1, 默认250每次只接收一条消息, 处理完成后才接收下一条消息
+        # acknowledgeMode: NONE # rabbitmq的自动确认
+        acknowledgeMode: AUTO # rabbitmq的手动确认, springboot会自动发送确认回执 (默认)
+        # acknowledgeMode: MANUAL # rabbitmq的手动确认, springboot不发送回执, 必须自己编码发送回执
+    
+
